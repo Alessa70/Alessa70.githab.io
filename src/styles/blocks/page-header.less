@@ -1,0 +1,270 @@
+.page-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 147px;
+  display: flex;
+  align-items: center;
+  background-color: rgba(@gray, 0.5);
+  z-index: 100;
+  transition: all 0.3s ease;
+
+  @media @bw1660 { height: 111px; }
+  @media @bw768 { height: 70px; }
+
+  // Modern browser support
+  @supports (backdrop-filter: blur(20px)) {
+    background-color: rgba(@gray, 0.5);
+    backdrop-filter: blur(20px);
+  }
+
+  &__container {
+    .container();
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @media @bw650 {
+      padding-left: 0;
+    }
+  }
+
+  // Logo
+  &__logo {
+    flex-shrink: 0;
+    width: 202px;
+    height: 147px;
+    font-size: 0;
+    text-decoration: none;
+    transition: all 0.3s ease;
+
+    @media @bw1660 {
+      width: 152px;
+      height: 111px;
+      position: relative;
+      z-index: 20;
+    }
+    @media @bw768 {
+      width: 96px;
+      height: 70px;
+    }
+  }
+
+  &__logo-icon {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  // Navigation
+  &__nav {
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+
+    @media @bw1020 {
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100vh;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 211px 30px 30px;
+      background-color: fade(@gray, 98%);
+      transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+      transform: translateX(-100%);
+      overflow-y: auto;
+      z-index: 10;
+
+      @supports (backdrop-filter: blur(20px)) {
+        background-color: fade(@gray, 70%);
+        backdrop-filter: blur(20px);
+      }
+
+      &.active {
+        transform: translateX(0);
+      }
+    }
+
+    @media @bw768 {
+      padding: 150px 20px 30px;
+    }
+  }
+
+  &__nav-link {
+    margin: 0 25px;
+    color: @black;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 25px;
+    text-decoration: none;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: @red;
+    }
+
+    @media @bw1020 {
+      margin: 0 0 40px;
+      font-size: 16px;
+      line-height: 22px;
+    }
+  }
+
+  // Right Block
+  &__right-block {
+    display: flex;
+    align-items: center;
+    width: 202px;
+    justify-content: flex-end;
+
+    @media @bw1660 {
+      width: 152px;
+      position: relative;
+      z-index: 20;
+    }
+    @media @bw1020 {
+      width: auto;
+      margin-left: auto;
+    }
+  }
+
+  // User Controls
+  &__user-btn {
+    .btn();
+    padding: 15px 40px;
+
+    @media @bw1020 {
+      width: 40px;
+      height: 40px;
+      padding: 0;
+      border: none;
+      background: none;
+      color: @black;
+      font-size: 0;
+
+      &:hover {
+        background-color: transparent;
+      }
+    }
+  }
+
+  &__user-icon {
+    display: none;
+
+    @media @bw1020 {
+      display: block;
+      margin: auto;
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  &__user {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: @red;
+    }
+  }
+
+  &__user-auth {
+    width: 24px;
+    height: 24px;
+    display: inline-flex;
+    color: @red;
+    margin-left: 25px;
+  }
+
+  // Mobile Navigation Toggle
+  &__nav-toggle {
+    display: none;
+
+    @media @bw1020 {
+      display: block;
+      position: relative;
+      right: -8px;
+      margin-left: 23px;
+      width: 40px;
+      height: 40px;
+      border: none;
+      background: none;
+      cursor: pointer;
+      z-index: 20;
+    }
+
+    @media @bw768 {
+      margin-left: 5px;
+    }
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      left: 11px;
+      width: 18px;
+      height: 2px;
+      border-radius: 2px;
+      background-color: @black;
+      transform-origin: center;
+      transition: all 0.4s ease;
+    }
+
+    &::before {
+      top: 13px;
+      box-shadow: 0 6px 0 @black;
+    }
+
+    &::after {
+      top: 25px;
+    }
+
+    &.active {
+      &::before {
+        transform: translateY(6px) rotate(45deg);
+        box-shadow: none;
+      }
+      &::after {
+        transform: translateY(-6px) rotate(-45deg);
+      }
+    }
+  }
+
+  // User Navigation (Mobile)
+  &__nav-user {
+    display: none;
+
+    a {
+      transition: color 0.2s ease;
+    }
+
+    &:hover a {
+      color: @red;
+    }
+
+    @media @bw1020 {
+      display: flex;
+      align-items: center;
+      margin-top: 20px;
+    }
+  }
+
+  &__nav-user-link {
+    margin-right: 25px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 22px;
+    text-decoration: none;
+  }
+
+  &__nav-logout {
+    width: 24px;
+    height: 24px;
+    font-size: 0;
+  }
+}

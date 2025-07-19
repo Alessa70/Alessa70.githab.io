@@ -16,8 +16,8 @@ import imagemin_mozjpeg from "imagemin-mozjpeg";
 import imagemin_optipng from "imagemin-optipng";
 import svgmin from "gulp-svgmin";
 import svgstore from "gulp-svgstore";
+import webp from 'gulp-webp';
 import server from "browser-sync";
-
 const resources = {
     html: "src/html/**/*.html",
     jsDev: "src/scripts/dev/**/*.js",
@@ -28,19 +28,17 @@ const resources = {
     static: [
         "src/assets/icons/**/*.*",
         "src/assets/favicons/**/*.*",
-        "src/assets/fonts/**/*.{woff,woff2}",
-        // "src/assets/video/**/*.{mp4,webm}",
-        // "src/assets/audio/**/*.{mp3,ogg,wav,aac}",
-        // "src/json/**/*.json",
-        // "src/php/**/*.php"
+        "src/assets/fonts/**/*.{woff,woff2,ttf}",
+        //"src/assets/video/**/*.{mp4,webm}"
+        //"src/assets/audio/**/*.{mp3,ogg,wav,aac}",
+        //"src/json/**/*.json",
+        //"src/php/**/*.php"
     ]
 };
-
 // Gulp Tasks:
 function clean() {
     return del("dist");
 }
-
 function includeHtml() {
     return gulp
         .src("src/html/*.html")
@@ -54,7 +52,6 @@ function includeHtml() {
         .pipe(formatHtml())
         .pipe(gulp.dest("dist"));
 }
-
 function style() {
     return gulp
         .src("src/styles/styles.less")
@@ -73,7 +70,6 @@ function style() {
         .pipe(rename("styles.min.css"))
         .pipe(gulp.dest("dist/styles"));
 }
-
 function js() {
     return gulp
         .src("src/scripts/dev/*.js")
@@ -93,25 +89,23 @@ function js() {
         )
         .pipe(gulp.dest("dist/scripts"));
 }
-
 function jsCopy() {
     return gulp
         .src(resources.jsVendor)
         .pipe(plumber())
         .pipe(gulp.dest("dist/scripts"));
 }
-
 function copy() {
     return gulp
         .src(resources.static, {
+            encoding: false,
             base: "src"
         })
         .pipe(gulp.dest("dist/"));
 }
-
 function images() {
     return gulp
-        .src(resources.images)
+        .src(resources.images, {encoding: false})
         .pipe(
             imagemin([
                 imagemin_gifsicle({interlaced: true}),
@@ -122,9 +116,17 @@ function images() {
         .pipe(gulp.dest("dist/assets/images"));
 }
 
+function convertwebp() {
+    return gulp
+        .src('src/assets/images/**/*', { encoding: false })
+        .pipe(
+            webp({quality: 100})
+        )
+        .pipe(gulp.dest("dist/assets/images"));
+}
 function svgSprite() {
     return gulp
-        .src(resources.svgSprite)
+        .src(resources.svgSprite, { encoding: false })
         .pipe(
             svgmin({
                 js2svg: {
@@ -140,7 +142,6 @@ function svgSprite() {
         .pipe(rename("symbols.svg"))
         .pipe(gulp.dest("dist/assets/icons"));
 }
-
 const build = gulp.series(
     clean,
     copy,
@@ -149,14 +150,13 @@ const build = gulp.series(
     js,
     jsCopy,
     images,
+    convertwebp,
     svgSprite
 );
-
 function reloadServer(done) {
     server.reload();
     done();
 }
-
 function serve() {
     server.init({
         server: "dist"
@@ -165,11 +165,11 @@ function serve() {
     gulp.watch(resources.less, gulp.series(style, reloadServer));
     gulp.watch(resources.jsDev, gulp.series(js, reloadServer));
     gulp.watch(resources.jsVendor, gulp.series(jsCopy, reloadServer));
-    gulp.watch(resources.static, {delay: 500}, gulp.series(copy, reloadServer));
-    gulp.watch(resources.images, {delay: 500}, gulp.series(images, reloadServer));
+    gulp.watch(resources.static, { delay: 500 }, gulp.series(copy, reloadServer));
+    gulp.watch(resources.images, { delay: 500 }, gulp.series(images, reloadServer));
+    gulp.watch(resources.images, { delay: 500 }, gulp.series(convertwebp, reloadServer));
     gulp.watch(resources.svgSprite, gulp.series(svgSprite, reloadServer));
 }
-
 const start = gulp.series(build, serve);
 export {
     clean,
@@ -181,6 +181,7 @@ export {
     images,
     svgSprite,
     build,
+    convertwebp,
     serve,
     start
 };

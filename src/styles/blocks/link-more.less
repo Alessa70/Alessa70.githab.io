@@ -1,0 +1,21 @@
+.link-more {
+  display: inline-flex;
+  align-items: center; // Better vertical alignment
+  font-weight: 600;
+  text-decoration: none;
+  padding: 15px 0 15px 40px;
+  margin-left: auto;
+  position: relative; // For potential icon/arrow additions
+  transition: color 0.2s ease; // Added easing for smoother hover
+  color: inherit; // Better maintainability
+
+  &:hover {
+    color: @red;
+    text-decoration: underline; // Added for better UX
+  }
+
+  @media @bw650 {
+    font-size: 14px;
+    padding-left: 30px; // Adjusted for smaller screens
+  }
+}

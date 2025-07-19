@@ -1,0 +1,111 @@
+/* ================
+   Mixins & Utilities
+   ================ */
+
+// Container Mixin
+.container() {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 1414px;
+  margin: 0 auto;
+  padding: 0 40px;
+
+  @media @bw1340 {
+    padding: 0 30px;
+  }
+
+  @media @bw768 {
+    padding: 0 20px;
+  }
+}
+
+// Section Title Mixin
+.section-title() {
+  font-family: "Lora", serif;
+  font-weight: 500;
+  font-size: 36px;
+  line-height: 1.277;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 62px;
+  background-color: #1f1e1e;
+  color: #ffffff;
+  padding: 8px 45px;
+  text-align: center;
+  text-transform: uppercase;
+
+  @media @bw1340 {
+    font-size: 24px;
+    line-height: 1.346;
+    min-height: 52px;
+  }
+
+  @media @bw650 {
+    font-size: 16px;
+    line-height: 1.25;
+    min-height: 42px;
+    margin-bottom: 80px;
+  }
+}
+
+/* ================
+   Utility Classes
+   ================ */
+
+// Visually Hidden Utility
+.is-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  margin: -1px !important;
+  padding: 0 !important;
+  border: 0 !important;
+  clip: rect(0 0 0 0) !important;
+  clip-path: inset(50%) !important;
+  overflow: hidden !important;
+  white-space: nowrap !important;
+}
+
+/* ================
+   State Classes
+   ================ */
+
+// Mobile Nav Show State
+.show-nav {
+  body {
+    @media @bw1020 {
+      overflow: hidden;
+    }
+  }
+
+  .page-header__nav {
+    @media @bw1020 {
+      transform: translateX(0);
+    }
+  }
+
+  .page-header__nav-toggle {
+    &::before {
+      transform: translate(0, 6px) rotate(45deg);
+      box-shadow: none;
+    }
+
+    &::after {
+      transform: translate(0, -6px) rotate(-45deg);
+    }
+  }
+}
+
+// Event Popup Show State
+.show-event-popup {
+  body {
+    overflow: hidden;
+  }
+
+  #js-eventPP {
+    display: flex;
+  }
+}

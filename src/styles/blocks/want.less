@@ -1,0 +1,46 @@
+.want {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 0 auto;
+  gap: 20px; // Added for consistent spacing between items
+
+  &__title {
+    width: 100%; // Ensures title takes full width
+    margin-bottom: 45px;
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 1.36; // 30/22
+    text-align: center;
+    text-transform: uppercase;
+    font-family: "Lora", serif;
+
+    @media @bw1340 {
+      font-size: 16px;
+      font-weight: 500;
+      margin-bottom: 37px;
+    }
+    @media @bw650 {
+      font-size: 13px;
+      margin-bottom: 18px;
+    }
+  }
+
+  &__btn {
+    flex: 1; // Allows buttons to grow equally
+    min-width: 200px; // Prevents buttons from becoming too narrow
+
+    @media @bw768 {
+      width: 100%;
+      min-width: auto;
+
+      &:nth-child(2) {
+        order: 3;
+      }
+      &:nth-child(3) {
+        order: 1;
+        margin-bottom: 24px;
+      }
+    }
+  }
+}

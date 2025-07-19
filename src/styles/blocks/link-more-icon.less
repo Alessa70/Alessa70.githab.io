@@ -1,0 +1,49 @@
+.link-more-icon {
+  display: inline-flex;
+  align-items: center;
+  font-weight: 600;
+  text-decoration: none;
+  text-decoration-color: transparent;
+  transition: color 0.2s ease;
+  color: inherit;
+
+  &:hover {
+    color: @red;
+    text-decoration: underline;
+    text-decoration-color: @red;
+  }
+
+  &__svg {
+    transition: transform 0.2s ease;
+    width: 91px;
+    height: 60px;
+
+    @media @bw1340 {
+      width: 67px;
+      height: 40px;
+    }
+  }
+
+  @media @bw1340 {
+    font-size: 14px;
+  }
+
+  // Column variation
+  &--column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    span {
+      display: block;
+      padding-bottom: 20px;
+      width: 100%;
+    }
+
+    svg {
+      transform: rotate(90deg);
+      transition: transform 0.2s ease;
+    }
+  }
+}
