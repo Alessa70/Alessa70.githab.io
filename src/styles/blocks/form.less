@@ -1,0 +1,63 @@
+.form {
+  &__columns {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    &--contact,
+    &--message,
+    &--check {
+      margin-bottom: 30px;
+    }
+
+    &--btns {
+      margin-top: 40px;
+    }
+  }
+
+  &__field {
+    margin-bottom: 30px;
+  }
+
+  &__column {
+    &--50 {
+      width: calc(50% - 30px);
+
+      @media @bw768 {
+        width: 100%;
+      }
+    }
+
+    &--100 {
+      width: 100%;
+    }
+  }
+
+  &__btns {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  &__close {
+    background: transparent;
+    border: none;
+    padding: 4px 0;
+    color: @black;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 22px;
+    text-decoration: underline;
+    cursor: pointer;
+    transition: color 0.2s;
+
+    @media @bw768 {
+      margin-top: 20px;
+      font-size: 14px;
+    }
+
+    &:hover {
+      color: @red;
+    }
+  }
+}

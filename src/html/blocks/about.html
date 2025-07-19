@@ -1,0 +1,51 @@
+<section class="about @@class">
+    <h2 class="about__title section-title width_624">О нас</h2>
+    <div class="container">
+        <article class="about__content">
+            <div class="about__description about__description-1 display-flex">
+                <h3 class="about__description-title">Проект «Millennials»</h3>
+                <p class="about__description-text">
+                    Вдохновлен молодыми идейными людьми, увлеченными творчеством, эмоциями и желанием сделать мир лучше,
+                    проявить себя. У них есть талант и стремление, у нас возможность помочь им воплотить их мечту в
+                    реальность.
+                </p>
+            </div>
+            <div class="about__description about__description-2 display-grid">
+                <picture class="about__image about__image-1">
+                    <source media="(max-width: 649px)" srcset="assets/images/about/pic-768.png">
+                    <source media="(max-width: 649px)" type="image/webp" srcset="assets/images/about/pic-768.webp">
+                    <source type="image/webp" srcset="assets/images/about/pic.webp">
+                    <img src="assets/images/about/pic.png" class="about__img" alt="img">
+                </picture>
+                <h3 class="about__description-title">Мы предоставляем площади для вашего мероприятия</h3>
+                <p class="about__description-text">
+                    И оказываем помощь с организацией, если вам это нужно. <br>
+                    Наша цель: вовлечь в культурную жизнь города как можно больше людей, помочь молодым ребятам сделать
+                    первые шаги к своей мечте и рассказать всем о том, что их волнует.
+                </p>
+                <picture class="about__image about__image-2">
+                    <source media="(max-width: 649px)" srcset="assets/images/about/pic2-768.png">
+                    <source media="(max-width: 649px)" type="image/webp" srcset="assets/images/about/pic2-768.webp">
+                    <source type="image/webp" srcset="assets/images/about/pic2.webp">
+                    <img src="assets/images/about/pic2.png" class="about__img" alt="img">
+                </picture>
+            </div>
+            <div class="about__description about__description-3 display-flex">
+                <picture class="about__image about__image-3">
+                    <source media="(max-width: 649px)" srcset="assets/images/about/pic3-768.png">
+                    <source media="(max-width: 649px)" type="image/webp" srcset="assets/images/about/pic3-768.webp">
+                    <source type="image/webp" srcset="assets/images/about/pic3.webp">
+                    <img src="assets/images/about/pic3.png" class="about__img" alt="img">
+                </picture>
+                <div class="about__description-text display-flex">
+                    <p>Мы уже успешно организовали и провели более 100 проектов. Посмотрите, как это было классно.</p>
+                    @@include('link-more-icon.html', {
+                    "class": "about__description-link display-flex w-100",
+                    "svg_class": "about__description-icon",
+                    "text": "Смотртеть"
+                    })
+                </div>
+            </div>            
+        </article>
+    </div>
+</section>

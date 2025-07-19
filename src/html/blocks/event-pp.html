@@ -1,0 +1,133 @@
+<div class="pp" id="js-eventPP">
+    <div class="pp__wrapper">
+        <div class="pp__sticky-close">
+            <button class="pp__x-btn x-btn js-ppCloseBtn">
+                <svg class="x-btn__icon" width="12" height="12">
+                    <use xlink:href="assets/icons/symbols.svg#close"></use>
+                </svg>
+            </button>
+        </div>
+        <div class="pp__container">
+            <h2 class="pp__title">Заполните форму<br />и мы подберем площадку</h2>
+            <form class="pp__form form" id="js-eventForm">
+                <!-- Содержимое формы -->
+                <div class="form__columns">
+                    <div class="form__column form__column--50">
+                        <div class="field form__field">
+                            <h6 class="field__title">Формат мероприятия:</h6>
+                            <div class="radio field__radio">
+                                <label class="radio__item">
+                                    <input class="radio__input" type="radio" name="format" value="seminar" checked />
+                                    <span class="radio__mark"></span>
+                                    <span class="radio__label">Мастер-класс/семинар</span>
+                                </label>
+
+                                <label class="radio__item">
+                                    <input class="radio__input" type="radio" name="format" value="concert" />
+                                    <span class="radio__mark"></span>
+                                    <span class="radio__label">Концерт/выступление</span>
+                                </label>
+
+                                <label class="radio__item">
+                                    <input class="radio__input" type="radio" name="format" value="exposition" />
+                                    <span class="radio__mark"></span>
+                                    <span class="radio__label">Выставка/показ</span>
+                                </label>
+
+                                <label class="radio__item">
+                                    <input class="radio__input" type="radio" name="format" value="other" />
+                                    <span class="radio__mark"></span>
+                                    <span class="radio__label">Другое</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form__column form__column--50">
+                        <div class="field form__field">
+                            <h6 class="field__title">Планируемое количество посетителей:</h6>
+                            <select class="field__select js-selectric" name="amount">
+                                <option value="20">до 20 человек</option>
+                                <option value="100">от 20 до 100 человек</option>
+                                <option value="500">от 100 до 500 человек</option>
+                                <option value="1000">более 500 человек</option>
+                            </select>
+                        </div>
+                        <div class="field form__field  js-dateField">
+                            <h6 class="field__title">Дата проведения:</h6>
+                            <div class="field__data">
+                                <div class="field__date-inputs">
+                                    <input class="field__data-input js-dateDay" type="text" placeholder="ДД" readonly>
+                                    <input class="field__data-input js-dateMonth" type="text" placeholder="ММ" readonly>
+                                    <input class="field__data-input field__date-input--year js-dateYear" type="text" placeholder="ГГГГ" readonly>
+                                </div>
+                                <input class="field__date-picker js-dateInput" type="text" name="date" readonly required>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form__columns form__columns--contact">
+                    <div class="form__column form__column--100">
+                        <h6 class="field__title">Контактные данные:</h6>
+                    </div>
+                    <div class="form__column form__column--50">
+                        <label class="field form__field">
+                            <span class="field__label">Имя*</span>
+                            <input class="field__input" type="text" placeholder="Имя" name="name" required>
+                        </label>
+                    </div>
+                    <div class="form__column form__column--50">
+                        <label class="field form__field">
+                            <span class="field__label">Фамилия*</span>
+                            <input class="field__input" type="text" placeholder="Фамилия" name="surname" required>
+                        </label>
+                    </div>
+                    <div class="form__column form__column--50">
+                        <label class="field form__field">
+                            <span class="field__label">Телефон*</span>
+                            <input class="field__input js-mobileMask" type="tel" placeholder="+7 (___) ___ __ __" name="phone"
+                                required>
+                        </label>
+                    </div>
+                    <div class="form__column form__column--50">
+                        <label class="field form__field">
+                            <span class="field__label">Email*</span>
+                            <input class="field__input" type="email" placeholder="Email" name="email" required>
+                        </label>
+                    </div>
+                </div>
+                <div class="form__columns form__columns--message">
+                    <div class="form__column form__column--100">
+                        <h6 class="field__title">Есть пожелания? Напишите нам:</h6>
+                        <label class="field">
+                            <textarea class="field__textarea" name="message"></textarea>
+                        </label>
+                    </div>
+                </div>
+                <div class="form__columns form__columns--check">
+                    <div class="form__column form__column--100">
+                        <label class="check">
+                            <input type="checkbox" name="agree" class="check__input" required checked />
+                            <span class="check__mark"></span>
+                            <span class="check__label check__label--s">
+                                Я соглашаюсь с пользовательским соглашением и с политикой
+                                использования персональных данных
+                            </span>
+                        </label>
+                    </div>
+                </div>
+                <div class="form__columns form__columns--btns items-center">
+                    <div class="form__column form__column--50">
+                        <button type="submit" class="btn form__submit form__column--100">
+                            Отправить
+                        </button>
+                    </div>
+                    <div class="form__column form__column--50 text-align-center">
+                        <button type="button" class="form__close js-ppCloseBtn">
+                            Закрыть
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

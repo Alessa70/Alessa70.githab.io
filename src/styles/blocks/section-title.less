@@ -1,0 +1,15 @@
+.section-title {
+  .section-title(); // Assuming this is a mixin that sets base styles
+  margin: 0 auto 152px;
+  text-align: center; // Added for better alignment control
+
+  @media @bw768 {
+    margin-bottom: 100px; // Adjusted for mobile
+    padding: 0 10px;
+    max-width: 100%; // Full width on mobile
+  }
+
+  @media @bw650 {
+    margin-bottom: 80px; // Further adjustment for small screens
+  }
+}

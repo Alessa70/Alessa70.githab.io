@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+@@include('blocks/head.html')
+
+<body class="body">
+  
+  @@include('blocks/page-header.html')
+
+  <main class="main">
+    <div class="home">
+
+      @@include('blocks/art.html', {'class': 'home__art justify-center'})
+
+      @@include('blocks/about.html', {'class': 'home__about'})
+
+      @@include('blocks/upcoming.html', {'class': 'home__listing events-home', 'title-class': 'home__listing-title'})
+
+      @@include('blocks/blog-listing.html', {"class": "home__blog-listing"})
+
+      @@include('blocks/contacts.html', {"class": "home__contacts"})
+
+    </div>
+  </main>
+  <!-- main -->
+
+  @@include('blocks/big-text.html', {"class": "home__big-text"})
+
+  @@include('blocks/page-footer.html')
+
+  @@include('blocks/event-pp.html')
+
+<script src="scripts/jquery-3.7.1.js"></script>
+<script src="scripts/swiper.min.js"></script>
+<script src="scripts/jquery.selectric.min.js"></script>
+<script src="scripts/jquery.mask.min.js"></script>
+<script src="scripts/toastr.min.js"></script>
+<script src="scripts/jquery.validate.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=key"></script>
+<script src="scripts/jquery.validate-init.js"></script>
+<script src="scripts/air-datepicker.js"></script>
+<script src="scripts/main.min.js"></script>
+</body>
+
+</html>

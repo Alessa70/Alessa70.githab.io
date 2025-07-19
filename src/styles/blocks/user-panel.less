@@ -1,0 +1,46 @@
+.user-panel {
+  display: flex;
+  align-items: center;
+  gap: 25px; // Using gap for consistent spacing
+
+  &__link,
+  &__logout {
+    display: inline-flex;
+    text-decoration: none;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: @red;
+    }
+  }
+
+  &__link {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.375; // 22/16
+    align-items: center;
+  }
+
+  &__logout {
+    width: 24px;
+    height: 24px;
+    color: inherit; // Ensures icon color matches text
+  }
+
+  &__svg {
+    width: 100%;
+    height: 100%;
+    fill: currentColor; // Makes SVG inherit text color
+    transition: fill 0.2s ease;
+  }
+}
+
+// Mobile variant
+.user-panel-mobile {
+  // Add mobile-specific styles here when needed
+  @media @bw768 {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+}

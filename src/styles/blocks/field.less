@@ -1,0 +1,276 @@
+// Base Field Styles
+.field {
+  display: flex;
+  flex-direction: column;
+
+  &__title {
+    display: block;
+    margin: 0 0 10px;
+    color: @black;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 25px;
+
+    @media @bw768 {
+      font-size: 16px;
+    }
+  }
+
+  &__label {
+    display: block;
+    margin-bottom: 5px;
+    color: @black;
+    font-size: 16px;
+    line-height: 1.3;
+  }
+
+  // Input Elements
+  &__input,
+  &__textarea,
+  &__select {
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    background-color: @white;
+    font-size: 16px;
+    line-height: 1.375;
+
+    @media @bw650 {
+      font-size: 12px;
+    }
+  }
+
+  &__input,
+  &__select {
+    height: 55px;
+    padding: 0 20px;
+  }
+
+  &__textarea {
+    height: 150px;
+    padding: 20px;
+  }
+
+  // Date Field
+  &__data {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 251px;
+    height: 55px;
+    position: relative;
+
+    &-input {
+      box-sizing: border-box;
+      display: block;
+      width: 55px;
+      height: 55px;
+      margin-right: 15px;
+      border: none;
+      border-radius: 5px;
+      background-color: @white;
+      padding: 0 5px;
+      font-size: 16px;
+      line-height: 1.375;
+      text-align: center;
+    }
+
+    &-year {
+      flex-grow: 1;
+      margin-right: 0;
+    }
+
+    span.error {
+      padding-top: 30px;
+    }
+  }
+
+  &__date-inputs {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    width: 100%;
+    height: 55px;
+    pointer-events: none;
+  }
+
+  &__date-picker {
+    box-sizing: border-box;
+    position: relative;
+    width: 100%;
+    max-width: 250px;
+    height: 55px;
+    border: none;
+    border-radius: 5px;
+    opacity: 0;
+    cursor: pointer;
+  }
+
+  // Error Styles
+  label.error,
+  span.error {
+    display: block;
+    margin: 5px 0 0;
+    color: @red;
+    font-size: 14px;
+  }
+}
+
+// Datepicker Override
+#air-datepicker-global-container {
+  z-index: 999999;
+}
+
+// Radio Buttons
+.radio {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  &__item {
+    box-sizing: border-box;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 15px;
+    min-height: 23px;
+    padding-left: 23px;
+    color: @black;
+    cursor: pointer;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__input {
+    .is-hidden();
+
+    &:checked ~ .radio__mark {
+      background-color: @black;
+    }
+  }
+
+  &__label {
+    margin-left: 20px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 22px;
+  }
+
+  &__mark {
+    box-sizing: border-box;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 23px;
+    height: 23px;
+    border: 2px solid @black;
+    border-radius: 50%;
+    padding: 3px;
+    background-clip: content-box;
+    background-color: transparent;
+    transition: background-color 0.2s;
+  }
+}
+
+// Checkboxes
+.check {
+  box-sizing: border-box;
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-height: 24px;
+  padding-top: 2px;
+  padding-left: 24px;
+  color: @black;
+  cursor: pointer;
+
+  &__input {
+    .is-hidden();
+
+    &:checked ~ .check__mark {
+      background-color: @black;
+
+      &::after {
+        content: "";
+        position: absolute;
+        left: 7px;
+        top: 2px;
+        width: 6px;
+        height: 12px;
+        border-bottom: 2px solid @white;
+        border-right: 2px solid @white;
+        transform: rotate(45deg);
+      }
+    }
+  }
+
+  &__mark {
+    box-sizing: border-box;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 24px;
+    height: 24px;
+    border: 1px solid @black;
+
+    @media @bw320 {
+      top: 4px;
+    }
+  }
+
+  &__label {
+    margin-left: 15px;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 22px;
+
+    &--s {
+      font-size: 14px;
+      line-height: 19px;
+
+      @media @bw320 {
+        font-size: 12px;
+        line-height: 1.1;
+      }
+    }
+  }
+
+  // Variations
+  &--red {
+    color: @red;
+
+    .check__mark {
+      border-color: @red;
+    }
+
+    .check__input:checked ~ .check__mark {
+      background-color: @red;
+    }
+  }
+
+  &--disabled {
+    pointer-events: none;
+    opacity: 0.5;
+  }
+
+  span.error {
+    order: 3;
+    display: inline-block;
+    padding-left: 15px;
+    color: @red;
+    font-size: 14px;
+  }
+}
+
+// Reserve Checkbox Specific
+.reserve__check {
+  display: flex;
+  margin-top: 10px;
+}

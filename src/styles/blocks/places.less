@@ -1,0 +1,47 @@
+.places {
+    &__place {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        justify-content: flex-end;
+        margin-bottom: 20px;
+        padding-left: 63px;
+        min-height: 24px; // Ensures consistent height
+
+        &::before,
+        &::after {
+            content: "";
+            position: absolute;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            left: 0;
+            transition: all 0.3s ease; // Smooth transitions
+        }
+
+        &::before {
+            border: 1px solid @black;
+            z-index: 1;
+        }
+
+        &::after {
+            border: 1px solid @red;
+            left: 14px;
+            z-index: 2;
+        }
+
+        // Disabled state
+        &--disable {
+            &::before {
+                border-color: @gray_dark;
+                background-color: @gray_dark;
+                left: 6px;
+            }
+
+            &::after {
+                opacity: 0;
+                transform: scale(0.8); // Smooth disappearance
+            }
+        }
+    }
+}

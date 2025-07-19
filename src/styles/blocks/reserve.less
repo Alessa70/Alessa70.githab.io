@@ -1,0 +1,236 @@
+.reserve {
+  display: grid;
+  gap: 65px 11.3%;
+  grid-template-columns: 405px calc(89% - 405px);
+  grid-template-areas:
+    "checks scheme"
+    "order legend";
+  width: 100%;
+
+  @media @bw1660 {
+    grid-template-columns: 401px 1fr;
+    gap: 65px 79px;
+  }
+  @media @bw1340 {
+    gap: 65px 6.5%;
+    grid-template-columns: 340px calc(93.5% - 340px);
+  }
+  @media @bw1020 {
+    gap: 60px 40px;
+    grid-template-columns: 280px auto;
+    grid-template-areas:
+      "scheme scheme"
+      "checks legend"
+      "checks order";
+  }
+  @media @bw768 {
+    grid-template-columns: 100%;
+    grid-template-areas:
+      "scheme"
+      "legend"
+      "checks"
+      "order";
+  }
+
+  // Common Section Styles
+  &__section-title {
+    margin: 0 0 31px;
+    font-family: @font1;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.36;
+
+    @media @bw1340 {
+      font-size: 16px;
+      margin-bottom: 22px;
+    }
+  }
+
+  // Scheme Section
+  &__scheme {
+    grid-area: scheme;
+    padding-top: 2px;
+
+    @media @bw1340 {
+      &-title {
+        font-size: 16px;
+        line-height: 15.79px;
+      }
+    }
+  }
+
+  &__scheme-title {
+    margin: 0 auto 40px;
+    padding: 6px 55px;
+    max-width: 162px;
+    background: @black;
+    color: @white;
+    text-align: center;
+    font-family: @font1;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.36;
+    box-sizing: border-box;
+  }
+
+  &__scheme-wrapper {
+    position: relative;
+    width: 100%;
+
+    &::after {
+      content: "";
+      display: block;
+      width: 100%;
+      padding-top: 51.15384%;
+    }
+
+    @media @bw1340 {
+      max-width: 628px;
+      margin: 0 auto;
+    }
+  }
+
+  &__scene {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  // Checks Section
+  &__checks {
+    grid-area: checks;
+  }
+
+  // Tickets Styles
+  &__tickets {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    line-height: 25px;
+
+    &-list {
+      margin-bottom: 25px;
+
+      @media @bw1340 {
+        margin-bottom: 18px;
+      }
+    }
+
+    & ~ & {
+      margin-top: 13px;
+    }
+  }
+
+  &__qty::after {
+    content: " " attr(data-caption) " | " attr(data-price);
+  }
+
+  &__sum {
+    font-size: 18px;
+    font-weight: 600;
+
+    &::after {
+      content: attr(data-currency);
+      margin-left: 4px;
+      font-size: 0.95em;
+    }
+  }
+
+  // Order Section
+  &__order {
+    grid-area: order;
+
+    .reserve__section-title {
+      margin-bottom: 23px;
+    }
+  }
+
+  &__total {
+    margin-bottom: 53px;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.36;
+    text-align: center;
+
+    &::before {
+      content: attr(data-caption);
+      margin-right: 30px;
+    }
+    &::after {
+      content: attr(data-currency);
+      margin-left: 4px;
+      font-size: 0.95em;
+    }
+
+    @media @bw1340 {
+      margin-bottom: 45px;
+    }
+  }
+
+  &__submit {
+    width: 100%;
+  }
+
+  // Legend Section
+  &__legend {
+    grid-area: legend;
+    text-align: right;
+    font-size: 14px;
+
+    .reserve__section-title {
+      margin-bottom: 21px;
+    }
+
+    @media @bw768 {
+      text-align: left;
+    }
+  }
+
+  &__prices {
+    font-size: 14px;
+    line-height: 24px;
+    margin-bottom: 36px;
+
+    &--qty {
+      margin-bottom: 11px;
+      vertical-align: middle;
+
+      &::before {
+        content: "";
+        display: inline-block;
+        width: 24px;
+        height: 24px;
+        margin-right: 9px;
+        vertical-align: middle;
+        background: @black;
+      }
+      &::after {
+        content: attr(data-price) " " attr(data-currency) " | " attr(data-caption);
+        display: inline-block;
+        vertical-align: middle;
+        line-height: 24px;
+      }
+    }
+
+    &--red::before {
+      background: @red;
+    }
+  }
+
+  // Places Section
+  &__places {
+    position: relative;
+    margin-top: 27px;
+  }
+}
+
+// Reserve Event Page
+.reserve-event {
+  padding-top: 160px;
+
+  @media @bw1340 {
+    padding-top: 131px;
+  }
+}

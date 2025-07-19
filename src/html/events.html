@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+@@include('blocks/head.html')
+
+<body class="body">
+
+    @@include('blocks/page-header.html', { "auth": "true" })
+
+    <main class="main">
+
+        <div class="container">
+                @@include('blocks/breadcrumbs.html', {'class': 'events__breadcrumbs'})
+            <div class="events">
+                <section class="listing events__listing">
+                    <h2 class="listing__title section-title width_624">Мероприятия</h2>
+                    <div class="listing__events-list">
+    
+                        <!-- prettier-ignore -->
+                        @@loop('blocks/event-card.html', [
+                        {
+                        "class": "listing__event-card",
+                        "img": "assets/images/events/nirvana.jpg",
+                        "img_tablet": "assets/images/events/nirvana-768.jpg",
+                        "img_webp": "assets/images/events/nirvana.webp",
+                        "img_tablet_webp": "assets/images/events/nirvana-768.webp",
+                        "alt": "nirvana",
+                        "title": "Собираемся и слушаем альбом Nirvana",
+                        "descr": "Это третий альбом группы, выпущенный после смерти Курта Кобейна и первый, содержащий студийный материал.",
+                        "time": "07.12.2022 | начало 18.00",
+                        "datetime": "2022-12-07T18:00"
+                        },
+                        {
+                        "class": "listing__event-card",
+                        "img": "assets/images/events/HowStuffWorks.jpg",
+                        "img_tablet": "assets/images/events/HowStuffWorks-768.jpg",
+                        "img_webp": "assets/images/events/HowStuffWorks.webp",
+                        "img_tablet_webp": "assets/images/events/HowStuffWorks-768.webp",
+                        "alt": "stuff",
+                        "title": "Есть тема, нужно обсудить с HowStuffWorks",
+                        "descr": "Это третий альбом группы, выпущенный после смерти Курта Кобейна и первый, содержащий студийный материал.",
+                        "time": "14.12.2022 | начало 18.30",
+                        "datetime": "2022-12-14T18:30"
+                        },
+                        {
+                        "class": "listing__event-card",
+                        "img": "assets/images/events/Sade.jpg",
+                        "img_tablet": "assets/images/events/Sade-768.jpg",
+                        "img_webp": "assets/images/events/Sade.webp",
+                        "img_tablet_webp": "assets/images/events/Sade-768.webp",
+                        "alt": "Sade",
+                        "title": "Вечер | The Best of Sade",
+                        "descr": "Музыка группы имеет эклектичный характер, сочетая в себе элементы музыки соул, джаза, ритм-блюза и фанка.",
+                        "time": "14.12.2022 | начало 18.30",
+                        "datetime": "2022-12-14T18:30"
+                        },
+                        {
+                        "class": "listing__event-card",
+                        "img": "assets/images/events/vistavka.jpg",
+                        "img_tablet": "assets/images/events/vistavka-768.jpg",
+                        "img_webp": "assets/images/events/vistavka.webp",
+                        "img_tablet_webp": "assets/images/events/vistavka-768.webp",
+                        "alt": "Sade",
+                        "title": "Выставка Малевича в Томске",
+                        "descr": "Это будет самая полная выставка с 1988 года, того времени, когда впервые заговорили о Малевиче. Экспозиция займёт два этажа павильона.",
+                        "time": "23.12.2024 | начало 20.00",
+                        "datetime": "2022-12-23T20:00"
+                        },
+                        {
+                        "class": "listing__event-card",
+                        "img": "assets/images/events/art.jpg",
+                        "img_tablet": "assets/images/events/art-768.jpg",
+                        "img_webp": "assets/images/events/art.webp",
+                        "img_tablet_webp": "assets/images/events/art-768.webp",
+                        "alt": "Sade",
+                        "title": "Мастер — класс по студийной съемке от Tatler",
+                        "descr": "Фотографы издания расскажут, как им удается создавать потрясающие кадры и что может испортить весь процесс.",
+                        "time": "23.12.2024 | начало 20.00",
+                        "datetime": "2022-12-23T20:00"
+                        },
+                        {
+                        "class": "listing__event-card",
+                        "img": "assets/images/events/thehatters.jpg",
+                        "img_tablet": "assets/images/events/thehatters-768.jpg",
+                        "img_webp": "assets/images/events/thehatters.webp",
+                        "img_tablet_webp": "assets/images/events/thehatters-768.webp",
+                        "alt": "Повесилимся на славу на концерте The Hatters",
+                        "title": "Повесилимся на славу на концерте The Hatters",
+                        "descr": "Российская джипси-фолк-рок группа, основанная в 2016 году в Санкт-Петербурге. В основной состав группы входят Юрий Музыченко",
+                        "time": "23.12.2024 | начало 20.00",
+                        "datetime": "2022-12-23T20:00"
+                        }
+                        ])
+    
+                    </div>
+    
+                        <div class="events__more events__more">
+                            @@include('blocks/link-more-icon.html', {"class": "events__more-link link-more-icon--column","text": "Показать еще"})
+                        </div>
+                </section>
+                <!-- Здесь будут дополнительные услуги -->
+                <div class="page-container">
+                    <h2 class="section-title events-title width_624">Дополнительные  услуги</h2>
+                    <p class="events__description">
+                        Перед запуском проекта, мы подготавливаем подробную смету и согласуем ее с клиентом. Убедившись, что <br>все пожеланию учтены и мы можем приступать к реализациии проекта, начинается сложная, но интересная работа, результатом которой будет проведение вашего мероприятия на высшем уровне.
+                    </p>
+                    <table class="events__tariffs-table  table">
+                        <thead class="table__head">
+                            <tr class="table__head-tr">
+                                <th class="table__th"></th>
+                                <th class="table__th">Тариф «Light»</th>
+                                <th class="table__th">Тариф «Promo»</th>
+                                <th class="table__th">Тариф «All stars»</th>
+                            </tr>
+                        </thead>
+                        <tbody class="table__body">
+                            <tr class="table__tr">
+                                <th class="table__body-th">Стоимость за час</th>
+                                <td class="table__td">1 000 ₽</td>
+                                <td class="table__td">3 000 ₽</td>
+                                <td class="table__td">от 6 000 ₽</td>
+                            </tr>
+                            <tr class="table__tr">
+                                <th class="table__body-th">Ведущий мероприятия</th>
+                                <td class="table__td"></td>
+                                <td class="table__td">
+                                    <span class="ok"></span>
+                                </td>
+                                <td class="table__td">
+                                    <span class="ok"></span>
+                                </td>
+                            </tr>
+                            <tr class="table__tr">
+                                <th class="table__body-th">Фотосъемка</th>
+                                <td class="table__td">
+                                    <span class="ok"></span>
+                                </td>
+                                <td class="table__td">
+                                    <span class="ok"></span>
+                                </td>
+                                <td class="table__td">
+                                    <span class="ok"></span>
+                                </td>
+                            </tr>
+                            <tr class="table__tr">
+                                <th class="table__body-th">Видеосъемка</th>
+                                <td class="table__td"></td>
+                                <td class="table__td"></td>
+                                <td class="table__td">
+                                    <span class="ok"></span>
+                                </td>
+                            </tr>
+                            <tr class="table__tr">
+                                <th class="table__body-th">Организация питания</th>
+                                <td class="table__td"></td>
+                                <td class="table__td">
+                                    <span class="ok"></span>
+                                </td>
+                                <td class="table__td">
+                                    <span class="ok"></span>
+                                </td>
+                            </tr>
+                            <tr class="table__tr">
+                                <th class="table__body-th">Декор</th>
+                                <td class="table__td"></td>
+                                <td class="table__td"></td>
+                                <td class="table__td">
+                                    <span class="ok"></span>
+                                </td>
+                            </tr>
+                            <tr class="table__tr">
+                                <th class="table__body-th">Звуковое сопровождение</th>
+                                <td class="table__td"></td>
+                                <td class="table__td">
+                                    <span class="ok"></span>
+                                </td>
+                                <td class="table__td">
+                                    <span class="ok"></span>
+                                </td>
+                            </tr>
+                            <tr class="table__tr">
+                                <th class="table__body-th">Дополнительное освещение</th>
+                                <td class="table__td"></td>
+                                <td class="table__td"></td>
+                                <td class="table__td">
+                                    <span class="ok"></span>
+                                </td>
+                            </tr>
+    
+                            <tr class="table__tr">
+                                <th class="table__body-th">Клининг</th>
+                                <td class="table__td"></td>
+                                <td class="table__td"></td>
+                                <td class="table__td">
+                                    <span class="ok"></span>
+                                </td>
+                            </tr>
+                        </tbody>
+    
+                        <tfoot class="table__footer">
+                            <tr class="table__footer-tr">
+                                <th class="table__footer-th"></th>
+                                <th class="table__footer-th" data-title="Тариф «Light»">Тариф «Light»</th>
+                                <th class="table__footer-th" data-title="Тариф «Promo»">Тариф «Promo»</th>
+                                <th class="table__footer-th" data-title="Тариф «All stars»">Тариф «All stars»</th>
+                            </tr>
+                        </tfoot>
+                    </table>
+
+                    @@include('blocks/want.html', {'class': 'events-want width_624'})
+    
+                    <div class="events__info">
+                        <div class="contacts__info-item display-flex">
+                            <div class="contacts__info-icon">
+                            <svg class="contacts__info__svg contacts__info__loc-icon" width="24" height="24">
+                                <use xlink:href="assets/icons/symbols.svg#information"></use>
+                            </svg>
+                            </div>
+                            <div class="contacts__info-text">
+                            <div class="contacts__info-head">Цены</div>
+                            <div class="contacts__info-string">Цены, указанные на сайте носят информационный характер. Мы придерживаемся индивидуального подхода в работе с клиентом.</div>
+                            </div>
+                        </div>
+                        <div class="contacts__info-item display-flex">
+                            <div class="contacts__info-icon">
+                            <svg class="contacts__info__svg contacts__info__loc-icon" width="24" height="24">
+                                <use xlink:href="assets/icons/symbols.svg#contact"></use>
+                            </svg>
+                            </div>
+                            <div class="contacts__info-text">
+                            <div class="contacts__info-head">Контакты</div>
+                            <div class="contacts__info-string">Отдел организации мероприятий</div>
+                            <a href="tel:83822907256" class="contacts__info-string">8 (3822) 90-72-56</a>
+                            <a href="mailto:idat@tusur.ru" class="contacts__info-string">idat@tusur.ru</a>
+                            </div>
+                        </div>
+                        <div class="contacts__info-item display-flex">
+                            <div class="contacts__info-icon">
+                            <svg class="contacts__info__svg contacts__info__loc-icon" width="24" height="24">
+                                <use xlink:href="assets/icons/symbols.svg#handshake"></use>
+                            </svg>
+                            </div>
+                            <div class="contacts__info-text">
+                            <div class="contacts__info-head">Преимущество</div>
+                            <div class="contacts__info-string">Мы имеем все возможности для того, чтобы помочь как малому бизнесу и молодым талантам, так и большим корпорациям и холдингам.</div>
+                            </div>
+                        </div>
+                        </div>
+    
+                </div>
+            </div>
+        </div>
+
+    </main><!-- main -->
+
+    @@include('blocks/page-footer.html')
+
+    @@include('blocks/event-pp.html')
+
+<script src="scripts/jquery-3.7.1.js"></script>
+<script src="scripts/swiper.min.js"></script>
+<script src="scripts/jquery.selectric.min.js"></script>
+<script src="scripts/jquery.mask.min.js"></script>
+<script src="scripts/toastr.min.js"></script>
+<script src="scripts/jquery.validate.min.js"></script>
+<script src="scripts/jquery.validate-init.js"></script>
+<script src="scripts/air-datepicker.js"></script>
+<script src="scripts/main.min.js"></script>
+
+</body>
+
+</html>
