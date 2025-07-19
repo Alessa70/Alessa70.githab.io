@@ -1,8 +1,8 @@
 {
-  "name": "course_front",
+  "name": "lenniart-alessa",
   "version": "1.0.0",
-  "description": "course junior frontend-developer",
-  "author": "si@tagree.ru",
+  "description": "Лендинг lenniart по курсу от ТУСУР",
+  "author": "alessa_tomsk@mail.ru",
   "devDependencies": {
     "autoprefixer": "^10.4.2",
     "browser-sync": "^2.27.7",
